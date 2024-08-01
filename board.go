@@ -8,7 +8,7 @@ import (
 // Default TT (Triple Triad) Board
 //
 // https://finalfantasy.fandom.com/wiki/Triple_Triad_(Final_Fantasy_VIII)#Mechanics
-const DEFAULT_BOARD_SIZE = 3
+const DEFAULT_BOARD_SIZE int = 3
 
 type (
 
