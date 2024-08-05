@@ -1,4 +1,4 @@
-package main
+package board
 
 import (
 	"errors"
@@ -44,4 +44,12 @@ func (b *Board) print() {
 		}
 		fmt.Print("\n")
 	}
+}
+
+func Sum(row any) int {
+	var tmp int
+	for _, v := range row.(Row) {
+		tmp = tmp + v
+	}
+	return tmp
 }
