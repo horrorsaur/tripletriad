@@ -1,10 +1,5 @@
 package board
 
-import (
-	"errors"
-	"fmt"
-)
-
 // Default TT (Triple Triad) Board
 //
 // https://finalfantasy.fandom.com/wiki/Triple_Triad_(Final_Fantasy_VIII)#Mechanics
@@ -21,34 +16,37 @@ type (
 	Row [DEFAULT_BOARD_SIZE]int
 )
 
-func newDefaultBoard() *Board {
+func NewDefaultBoard() *Board {
 	return &Board{Grid: [DEFAULT_BOARD_SIZE][DEFAULT_BOARD_SIZE]int{}}
 }
 
-func (b *Board) row(offset int) (Row, error) {
-	if offset > DEFAULT_BOARD_SIZE || offset < 0 {
-		return Row{0, 0, 0}, errors.New("offset is out of range")
+func (b Board) GetRow(offset int) Row {
+	if offset < 0 || offset >= DEFAULT_BOARD_SIZE {
+		return Row{0, 0, 0} // out of bounds, no need for error
 	}
-	return b.Grid[offset], nil
+	row := b.Grid[offset]
+	return Row{row[0], row[1], row[2]}
+}
+
+func (b Board) GetColumn(offset int) [3]int {
+	if offset < 0 || offset >= DEFAULT_BOARD_SIZE {
+		return [3]int{0, 0, 0} // out of bounds, no need for error
+	}
+
+	var col [3]int
+	for i := 0; i < len(b.Grid); i++ {
+		col[i] = b.Grid[i][offset]
+	}
+	return col
 }
 
 func (b *Board) update(row, column, value int) {
 	b.Grid[row][column] = value
 }
 
-// visually print the game board
-func (b *Board) print() {
-	for i := 0; i < DEFAULT_BOARD_SIZE; i++ {
-		for j := 0; j < DEFAULT_BOARD_SIZE; j++ {
-			fmt.Print(b.Grid[i][j], " ")
-		}
-		fmt.Print("\n")
-	}
-}
-
-func Sum(row any) int {
+func (r Row) Sum() int {
 	var tmp int
-	for _, v := range row.(Row) {
+	for _, v := range r {
 		tmp = tmp + v
 	}
 	return tmp

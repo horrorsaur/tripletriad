@@ -4,22 +4,32 @@ import (
 	"testing"
 )
 
-func TestUpdateBoard(t *testing.T) {
-	board := newDefaultBoard()
-	for i := 0; i < 3; i++ {
-		for j := 0; j < 3; j++ {
-			board.update(i, j, 1)
-		}
+func TestBoardGetRow(t *testing.T) {
+	board := Board{
+		Grid: [3][3]int{
+			{1, 1, 1},
+			{0, 0, 0},
+			{0, 0, 0},
+		},
 	}
 
-	board.print()
+	expected := Row{1, 1, 1}
+	if board.GetRow(0) != expected {
+		t.Fatalf("expected %x but got %x", board.GetRow(0), expected)
+	}
+}
 
-	row, err := board.row(0)
-	if err != nil {
-		t.Fatal(err)
+func TestBoardGetColumn(t *testing.T) {
+	board := Board{
+		Grid: [3][3]int{
+			{1, 3, 10},
+			{1, 8, 8},
+			{1, 2, 5},
+		},
 	}
 
-	if Sum(row) != 3 {
-		t.Fatalf("expected row sum to be 3 but got %d", Sum(row))
+	expected := [3]int{1, 1, 1}
+	if board.GetColumn(0) != expected {
+		t.Fatalf("expected %x but got %x", board.GetColumn(0), expected)
 	}
 }
