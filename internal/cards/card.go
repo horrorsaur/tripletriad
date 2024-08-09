@@ -9,6 +9,10 @@ import (
 )
 
 type (
+	GameDeck struct {
+		Cards []Card
+	}
+
 	Card struct {
 		Name string `json:"name"`
 
@@ -19,16 +23,13 @@ type (
 
 		// The top right corner of the card sometimes has an elemental symbol representing the card's Element:
 		// Earth, Fire, Water, Poison, Holy, Lightning, Wind, or Ice
-		Element Element `json:"element"`
+		Element element `json:"element"`
 	}
 
-	Element int
+	element int
 
-	GameDeck struct {
-		Cards []Card
-	}
-
-	ClassicCardGroup struct {
+	// describes the souped json to encode
+	classicCardGroup struct {
 		Names []string `json:"names"`
 		Type  string   `json:"type"`
 		Level string   `json:"level"`
@@ -36,7 +37,7 @@ type (
 )
 
 const (
-	None Element = iota
+	None element = iota
 	Fire
 	Earth
 	Water
@@ -47,7 +48,7 @@ const (
 	Ice
 )
 
-var elements = map[Element]string{
+var elements = map[element]string{
 	Fire:      "fire",
 	Earth:     "earth",
 	Water:     "water",
@@ -60,7 +61,14 @@ var elements = map[Element]string{
 
 var DefaultDeck GameDeck
 
-func New(name string, ranks [4]int, element Element, shuffle bool) Card {
+// Generates the original FF8 Triple Triad cards and stores the output in the DefaultDeck
+func Initialize() bool {
+	cards := generateDefaultTTCards()
+	DefaultDeck.Cards = cards
+	return true
+}
+
+func New(name string, ranks [4]int, element element, shuffle bool) Card {
 	return Card{
 		Name:    name,
 		Ranks:   handleRanks(ranks, shuffle),
@@ -95,21 +103,15 @@ func setRankByLevel(_ string) [4]int {
 	return ranks
 }
 
-func Initialize() bool {
-	cards := generateDefaultTTCards()
-	DefaultDeck.Cards = cards
-	return true
-}
-
 func generateDefaultTTCards() []Card {
-	cardByts, _ := os.ReadFile("./data/original_card_names.json")
+	cardByts, _ := os.ReadFile("../../data/original_card_names.json")
 
-	var data []ClassicCardGroup
+	var data []classicCardGroup
 	if err := json.Unmarshal(cardByts, &data); err != nil {
 		log.Fatal(err)
 	}
 
-	var generatedCards []Card
+	var generatedCards []Card // len == 88
 	for _, card := range data {
 		for _, name := range card.Names {
 			card := New(name, setRankByLevel(card.Level), None, false)
