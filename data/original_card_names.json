@@ -1,0 +1,130 @@
+{
+	"Level 1": {
+		"names": [
+			"Geezard",
+			"Funguar",
+			"Bite Bug",
+			"Red Bat",
+			"Blobra",
+			"Gayla",
+			"Gesper",
+			"Fastitocalon-F",
+			"Blood Soul",
+			"Caterchipillar",
+			"Cockatrice"
+		],
+		"type": "Monster Cards"
+	},
+	"Level 2": {
+		"names": [
+			"Grat",
+			"Buel",
+			"Mesmerize",
+			"Glacial Eye",
+			"Belhelmel",
+			"Thrustaevis",
+			"Anacondaur",
+			"Creeps",
+			"Grendel",
+			"Jelleye",
+			"Grand Mantis"
+		],
+		"type": "Monster Cards"
+	},
+	"Level 3": {
+		"names": [
+			"Forbidden",
+			"Armadodo",
+			"Tri-Face",
+			"Fastitocalon",
+			"Snow Lion",
+			"Ochu",
+			"SAM08G",
+			"Death Claw",
+			"Cactuar",
+			"Tonberry",
+			"Abyss Worm"
+		],
+		"type": "Monster Cards"
+	},
+	"Level 4": {
+		"names": [
+			"Turtapod",
+			"Vysage",
+			"T-Rexaur",
+			"Bomb",
+			"Blitz",
+			"Wendigo",
+			"Torama",
+			"Imp",
+			"Blue Dragon",
+			"Adamantoise",
+			"Hexadragon"
+		],
+		"type": "Monster Cards"
+	},
+	"Level 6": {
+		"names": [
+			"Fujin, Raijin",
+			"Elvoret",
+			"X-ATM092",
+			"Granaldo",
+			"Gerogero",
+			"Iguion",
+			"Abadon",
+			"Trauma",
+			"Oilboyle",
+			"Shumi Tribe",
+			"Krysta"
+		],
+		"type": "Boss Cards"
+	},
+	"Level 7": {
+		"names": [
+			"Propagator",
+			"Jumbo Cactuar",
+			"Tri-Point",
+			"Gargantua",
+			"Mobile Type 8",
+			"Sphinxara",
+			"Tiamat",
+			"BGH251F2",
+			"Red Giant",
+			"Catoblepas",
+			"Ultima Weapon"
+		],
+		"type": "Boss Cards"
+	},
+	"Level 8": {
+		"names": [
+			"Chubby Chocobo",
+			"Angelo",
+			"Gilgamesh",
+			"MiniMog",
+			"Chicobo",
+			"Quezacotl",
+			"Shiva",
+			"Ifrit",
+			"Siren",
+			"Sacred",
+			"Minotaur"
+		],
+		"type": "GF Cards"
+	},
+	"Level 9": {
+		"names": [
+			"Carbuncle",
+			"Diablos",
+			"Leviathan",
+			"Odin",
+			"Pandemona",
+			"Cerberus",
+			"Alexander",
+			"Phoenix",
+			"Bahamut",
+			"Doomtrain",
+			"Eden"
+		],
+		"type": "GF Cards"
+	}
+}
