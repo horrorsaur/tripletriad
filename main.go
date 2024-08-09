@@ -2,6 +2,8 @@ package main
 
 import (
 	"flag"
+	"fmt"
+	"horrorsaur/tripletriad/internal/cards"
 )
 
 var (
@@ -10,5 +12,10 @@ var (
 
 func main() {
 	flag.Parse()
-	flag.Usage()
+
+	if ok := cards.Initialize(); ok {
+		fmt.Println("default cards generated")
+	}
+
+	fmt.Println(cards.DefaultDeck.Cards[0:8])
 }

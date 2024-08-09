@@ -1,5 +1,5 @@
-{
-	"Level 1": {
+[
+	{
 		"names": [
 			"Geezard",
 			"Funguar",
@@ -13,9 +13,10 @@
 			"Caterchipillar",
 			"Cockatrice"
 		],
-		"type": "Monster Cards"
+		"type": "Monster Cards",
+		"level": "Level 1"
 	},
-	"Level 2": {
+	{
 		"names": [
 			"Grat",
 			"Buel",
@@ -29,9 +30,10 @@
 			"Jelleye",
 			"Grand Mantis"
 		],
-		"type": "Monster Cards"
+		"type": "Monster Cards",
+		"level": "Level 2"
 	},
-	"Level 3": {
+	{
 		"names": [
 			"Forbidden",
 			"Armadodo",
@@ -45,9 +47,10 @@
 			"Tonberry",
 			"Abyss Worm"
 		],
-		"type": "Monster Cards"
+		"type": "Monster Cards",
+		"level": "Level 3"
 	},
-	"Level 4": {
+	{
 		"names": [
 			"Turtapod",
 			"Vysage",
@@ -61,9 +64,10 @@
 			"Adamantoise",
 			"Hexadragon"
 		],
-		"type": "Monster Cards"
+		"type": "Monster Cards",
+		"level": "Level 4"
 	},
-	"Level 6": {
+	{
 		"names": [
 			"Fujin, Raijin",
 			"Elvoret",
@@ -77,9 +81,10 @@
 			"Shumi Tribe",
 			"Krysta"
 		],
-		"type": "Boss Cards"
+		"type": "Boss Cards",
+		"level": "Level 6"
 	},
-	"Level 7": {
+	{
 		"names": [
 			"Propagator",
 			"Jumbo Cactuar",
@@ -93,9 +98,10 @@
 			"Catoblepas",
 			"Ultima Weapon"
 		],
-		"type": "Boss Cards"
+		"type": "Boss Cards",
+		"level": "Level 7"
 	},
-	"Level 8": {
+	{
 		"names": [
 			"Chubby Chocobo",
 			"Angelo",
@@ -109,9 +115,10 @@
 			"Sacred",
 			"Minotaur"
 		],
-		"type": "GF Cards"
+		"type": "GF Cards",
+		"level": "Level 8"
 	},
-	"Level 9": {
+	{
 		"names": [
 			"Carbuncle",
 			"Diablos",
@@ -125,6 +132,7 @@
 			"Doomtrain",
 			"Eden"
 		],
-		"type": "GF Cards"
+		"type": "GF Cards",
+		"level": "Level 9"
 	}
-}
+]

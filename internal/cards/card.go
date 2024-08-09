@@ -1,8 +1,11 @@
 package cards
 
 import (
+	"encoding/json"
 	"fmt"
+	"log"
 	"math/rand"
+	"os"
 )
 
 type (
@@ -20,10 +23,21 @@ type (
 	}
 
 	Element int
+
+	GameDeck struct {
+		Cards []Card
+	}
+
+	ClassicCardGroup struct {
+		Names []string `json:"names"`
+		Type  string   `json:"type"`
+		Level string   `json:"level"`
+	}
 )
 
 const (
-	Fire Element = iota
+	None Element = iota
+	Fire
 	Earth
 	Water
 	Poison
@@ -44,8 +58,10 @@ var elements = map[Element]string{
 	Ice:       "ice",
 }
 
-func New(name string, ranks [4]int, element Element, shuffle bool) *Card {
-	return &Card{
+var DefaultDeck GameDeck
+
+func New(name string, ranks [4]int, element Element, shuffle bool) Card {
+	return Card{
 		Name:    name,
 		Ranks:   handleRanks(ranks, shuffle),
 		Element: element,
@@ -65,4 +81,41 @@ func handleRanks(ranks [4]int, shuffle bool) [4]int {
 		})
 	}
 	return ranks
+}
+
+func setRankByLevel(_ string) [4]int {
+	var ranks [4]int
+	for i := 0; i < 4; i++ {
+		n := rand.Intn(9)
+		if n > 0 {
+			ranks[i] = n
+		}
+		ranks[i] = n + 1 // temp
+	}
+	return ranks
+}
+
+func Initialize() bool {
+	cards := generateDefaultTTCards()
+	DefaultDeck.Cards = cards
+	return true
+}
+
+func generateDefaultTTCards() []Card {
+	cardByts, _ := os.ReadFile("./data/original_card_names.json")
+
+	var data []ClassicCardGroup
+	if err := json.Unmarshal(cardByts, &data); err != nil {
+		log.Fatal(err)
+	}
+
+	var generatedCards []Card
+	for _, card := range data {
+		for _, name := range card.Names {
+			card := New(name, setRankByLevel(card.Level), None, false)
+			generatedCards = append(generatedCards, card)
+		}
+	}
+
+	return generatedCards
 }
